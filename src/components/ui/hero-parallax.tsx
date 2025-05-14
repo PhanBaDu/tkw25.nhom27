@@ -78,10 +78,12 @@ export const HeroParallax = ({
                 </motion.div>
             </motion.div>
             <div className="flex-1 w-full flex items-center gap-4 flex-wrap justify-center absolute bottom-50 z-10">
-                <Button className="cursor-pointer">
-                    Đến Trang 50 Năm Giải Phóng Miền Nam
-                    <ArrowUpRight />
-                </Button>
+                <Link href="https://repo-quy.vercel.app/">
+                    <Button className="cursor-pointer">
+                        Đến Trang 50 Năm Giải Phóng Miền Nam
+                        <ArrowUpRight />
+                    </Button>
+                </Link>
                 <Link href="https://repo-cuong.vercel.app/">
                     <Button className="cursor-pointer">
                         Đến Trang Chủ Tịch Hồ Chí Minh Kính Yêu
@@ -149,7 +151,6 @@ export const ProductCard = ({
             <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white">
                 {product.title}
             </h2>
-            <h1>hahah</h1>
         </motion.div>
     );
 };
