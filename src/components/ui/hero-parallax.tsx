@@ -2,6 +2,9 @@
 import React from 'react';
 import { motion, useScroll, useTransform, useSpring, MotionValue } from 'motion/react';
 import { TextGenerateEffect } from '@/components/ui/text-generate-effect';
+import { BackgroundLines } from '@/components/ui/background-lines';
+import { Button } from '@/components/ui/button';
+import { ArrowUpRight } from 'lucide-react';
 
 export const HeroParallax = ({
     products,
@@ -38,7 +41,7 @@ export const HeroParallax = ({
     return (
         <div
             ref={ref}
-            className="h-[300vh] py-40 overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+            className="h-[300vh] py-40 pb-0 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
         >
             <Header />
             <motion.div
@@ -55,7 +58,7 @@ export const HeroParallax = ({
                         <ProductCard product={product} translate={translateX} key={product.title} />
                     ))}
                 </motion.div>
-                <motion.div className="flex flex-row  mb-20 space-x-20 ">
+                <motion.div className="flex flex-row mb-20 space-x-20">
                     {secondRow.map((product) => (
                         <ProductCard
                             product={product}
@@ -70,25 +73,37 @@ export const HeroParallax = ({
                     ))}
                 </motion.div>
             </motion.div>
+            <div className="flex-1 w-full flex items-center gap-4 flex-wrap justify-center absolute bottom-50 z-10">
+                <Button className="cursor-pointer">
+                    Đến Trang 50 Năm Giải Phóng Miền Nam
+                    <ArrowUpRight />
+                </Button>
+                <Button className="cursor-pointer">
+                    Đến Trang Chủ Tịch Hồ Chí Minh Kính Yêu
+                    <ArrowUpRight />
+                </Button>
+            </div>
         </div>
     );
 };
 
 export const Header = () => {
     return (
-        <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0">
-            <TextGenerateEffect
-                duration={0.2}
-                words={'Chào mừng đến với \n trang giới thiệu'}
-                className="text-foreground text-effect text-2xl md:text-7xl font-bold dark:text-background uppercase"
-            />
-            <TextGenerateEffect
-                duration={0.2}
-                words={
-                    'Khám phá hai chủ đề đặc biệt: Cuộc đời và sự nghiệp của Chủ tịch Hồ Chí Minh và dấu mốc 50 năm giải phóng miền Nam.'
-                }
-                className="max-w-2xl text-base font-normal md:text-xl mt-2 md:mt-8 dark:text-background"
-            />
+        <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full left-0 top-0 z-50">
+            <BackgroundLines>
+                <TextGenerateEffect
+                    duration={0.2}
+                    words={'Chào mừng đến với \n trang giới thiệu'}
+                    className="text-foreground text-effect text-2xl md:text-7xl font-bold dark:text-background uppercase"
+                />
+                <TextGenerateEffect
+                    duration={0.2}
+                    words={
+                        'Khám phá hai chủ đề đặc biệt: Cuộc đời và sự nghiệp của Chủ tịch Hồ Chí Minh và dấu mốc 50 năm giải phóng miền Nam.'
+                    }
+                    className="max-w-2xl text-base font-normal md:text-xl mt-2 md:mt-8 dark:text-background text-wrap"
+                />
+            </BackgroundLines>
         </div>
     );
 };
@@ -113,21 +128,22 @@ export const ProductCard = ({
                 y: -20,
             }}
             key={product.title}
-            className="group/product h-96 w-[30rem] relative shrink-0"
+            className="group/product h-72 md:h-96 w-[20rem] md:w-[30rem] relative shrink-0"
         >
             <a href={product.link} className="block group-hover/product:shadow-2xl ">
                 <img
                     src={product.thumbnail}
                     height="600"
                     width="600"
-                    className="object-cover object-left-top absolute h-full w-full inset-0"
+                    className="object-cover object-left-top absolute h-full w-full inset-0 rounded-lg"
                     alt={product.title}
                 />
             </a>
-            <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-black pointer-events-none"></div>
+            <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 rounded-lg bg-black pointer-events-none"></div>
             <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white">
                 {product.title}
             </h2>
+            <h1>hahah</h1>
         </motion.div>
     );
 };

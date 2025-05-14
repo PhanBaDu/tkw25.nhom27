@@ -1,6 +1,48 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
+@theme inline {
+    --animate-spotlight: spotlight 2s ease 0.75s 1 forwards;
+}
+
+@keyframes spotlight {
+    0% {
+        opacity: 0;
+        transform: translate(-72%, -62%) scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -40%) scale(1);
+    }
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cd2029; /* light mode */
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    cursor: pointer;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 4px;
+}
+
+.text-effect {
+    white-space: pre-line;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -108,8 +150,4 @@
     --sidebar-accent-foreground: oklch(0.985 0 0);
     --sidebar-border: oklch(1 0 0 / 10%);
     --sidebar-ring: oklch(0.55 0.2047 25.331);
-}
-
-.text-effect {
-    white-space: pre-line;
 }
