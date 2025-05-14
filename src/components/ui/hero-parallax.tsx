@@ -5,6 +5,7 @@ import { TextGenerateEffect } from '@/components/ui/text-generate-effect';
 import { BackgroundLines } from '@/components/ui/background-lines';
 import { Button } from '@/components/ui/button';
 import { ArrowUpRight } from 'lucide-react';
+import Link from 'next/link';
 
 export const HeroParallax = ({
     products,
@@ -81,10 +82,12 @@ export const HeroParallax = ({
                     Đến Trang 50 Năm Giải Phóng Miền Nam
                     <ArrowUpRight />
                 </Button>
-                <Button className="cursor-pointer">
-                    Đến Trang Chủ Tịch Hồ Chí Minh Kính Yêu
-                    <ArrowUpRight />
-                </Button>
+                <Link href="https://repo-cuong.vercel.app/">
+                    <Button className="cursor-pointer">
+                        Đến Trang Chủ Tịch Hồ Chí Minh Kính Yêu
+                        <ArrowUpRight />
+                    </Button>
+                </Link>
             </div>
         </div>
     );
