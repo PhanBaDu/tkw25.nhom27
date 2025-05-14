@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion, useScroll, useTransform, useSpring, MotionValue } from 'motion/react';
 import { TextGenerateEffect } from '@/components/ui/text-generate-effect';
 import { BackgroundLines } from '@/components/ui/background-lines';
@@ -15,6 +15,9 @@ export const HeroParallax = ({
         thumbnail: string;
     }[];
 }) => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     const firstRow = products.slice(0, 5);
     const secondRow = products.slice(5, 10);
     const thirdRow = products.slice(10, 15);
